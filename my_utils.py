@@ -2,7 +2,6 @@
 # query_column = 0
 # query_value = 'Afghanistan'
 # result_column = 1 
-
 def get_column(file_name, query_column, query_value, result_column):
     #open file
     f = open(file_name)
