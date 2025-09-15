@@ -19,6 +19,11 @@ def get_column(file_name, query_column, query_value, result_column):
         # stored in the query_value variable
         if data_arr[query_column] == query_value:
             # append value in result column if true
-            result_arr.append(data_arr[result_column])
+            try:
+                result_arr.append(int(data_arr[result_column]))
+            except ValueError:
+                raise ValueError(f"Could not convert data in row to int: "
+                                 f"{data_arr[result_column]}")
+
     f.close()
     return result_arr
