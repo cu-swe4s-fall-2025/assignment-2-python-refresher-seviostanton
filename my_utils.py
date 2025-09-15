@@ -3,8 +3,23 @@
 # query_value = 'Afghanistan'
 # result_column = 1
 def get_column(file_name, query_column, query_value, result_column):
-    """Return a list of values from `result_column` for rows where
-    `data[query_column] == query_value` in a CSV file.
+    """
+    Return a list of integers from result_column for
+    rows where row[query_column] == query_value.
+
+    Args:
+        file_name: path to CSV file.
+        query_column: index of column to search; ex)
+                      column containing country names.
+        query_value: value to match for filtering;
+                     ex) 'United States of America'
+        result_column: index of column to convert elements to int.
+
+    Returns:
+        List[int]: values from the specified column.
+
+    Raises:
+        ValueError: if conversion to int fails.
     """
     # open file
     f = open(file_name)
@@ -19,6 +34,11 @@ def get_column(file_name, query_column, query_value, result_column):
         # stored in the query_value variable
         if data_arr[query_column] == query_value:
             # append value in result column if true
-            result_arr.append(data_arr[result_column])
+            try:
+                result_arr.append(int(data_arr[result_column]))
+            except ValueError:
+                raise ValueError(f"Could not convert data in row to int: "
+                                 f"{data_arr[result_column]}")
+
     f.close()
     return result_arr
