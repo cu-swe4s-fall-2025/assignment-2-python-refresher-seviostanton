@@ -1,10 +1,3 @@
-# file_name = 'Agrofood_co2_emission.csv'
-# query_column = 0
-# query_value = 'Afghanistan'
-# result_column = 1
-import numpy as np
-
-
 def get_column(file_name, query_column, query_value, result_column):
     """
     Return a list of integers from result_column for
@@ -53,13 +46,13 @@ def _as_int_list(int_arr):
     Args:
         int_arr: iterable of integers.
     Returns:
-        np.ndarray: array of integers.
+        list: list of integers.
     Raises:
         TypeError: if input is not an iterable of integers.
         ValueError: if input is empty.
     """
     try:
-        vals = np.array(int_arr)
+        vals = list(int_arr)
     except TypeError:
         raise TypeError("Input must be an iterable of integers.")
     if not vals:
@@ -82,7 +75,9 @@ def mean_ints(int_arr):
     Raises:
         ValueError: if the list is empty.
     """
-    int_arr = np.array(int_arr)
+    int_arr = _as_int_list(int_arr)
+    if len(int_arr) == 1:
+        return float(int_arr[0])
     if len(int_arr) == 0:
         raise ValueError("Cannot compute mean of empty list.")
     return sum(int_arr) / len(int_arr)
@@ -102,6 +97,8 @@ def median_ints(int_arr):
         ValueError: if the list is empty.
     """
     int_arr = _as_int_list(int_arr)
+    if len(int_arr) == 1:
+        return float(int_arr[0])
     if len(int_arr) == 0:
         raise ValueError("Cannot compute median of empty list.")
     int_arr.sort()
@@ -127,6 +124,11 @@ def std_ints(int_arr):
         ValueError: if the list is empty.
     """
     int_arr = _as_int_list(int_arr)
+    if len(int_arr) < 2:
+        raise ValueError(
+            "At least two values are required to"
+            " compute standard deviation."
+        )
     avg_ints = mean_ints(int_arr)
-    variance = sum((x - avg_ints) ** 2 for x in int_arr) / len(int_arr)
+    variance = sum((x - avg_ints) ** 2 for x in int_arr) / (len(int_arr)-1)
     return variance ** 0.5
