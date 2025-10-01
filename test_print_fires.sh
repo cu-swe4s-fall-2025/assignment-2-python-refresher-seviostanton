@@ -22,7 +22,7 @@ EXPECTED_RAW="Values from column 7 for Italy: [1744, 1603, 1571, 1398]"
 EXPECTED_MEAN="mean of values from column 7 for Italy: 1579.0"
 EXPECTED_MEDIAN="median of values from column 7 for Italy: 1587.0"
 EXPECTED_STD="std of values from column 7 for Italy: 142.15718999286202"
-EXPECTED_CONVERT_ERR="ValueError: Could not convert data in row to int: Italy"
+
 # ---- tests ----
 run raw_data python3 $SCRIPT --file_name $DATA --country $COUNTRY --country_column $COUNTRY_COLUMN --fires_column $FIRES_COLUMN
 assert_exit_code 0
