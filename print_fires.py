@@ -41,7 +41,7 @@ def parse_args():
                    help="Index of the fire column "
                         "(e.g. 2 for savanna fires)")
     # Optional operation to perform on the fire counts
-    p.add_argument("--operation", choices=["sum", "mean", "std"],
+    p.add_argument("--operation", choices=["median", "mean", "std"],
                    default=None,
                    help="If provided: Operation to perform on the fire counts")
     return p.parse_args()
@@ -83,8 +83,8 @@ def main():
 
     if args.operation:
         try:
-            if args.operation == "sum":
-                result = my_utils.sum_ints(fires)
+            if args.operation == "median":
+                result = my_utils.median_ints(fires)
             elif args.operation == "mean":
                 result = my_utils.mean_ints(fires)
             elif args.operation == "std":
