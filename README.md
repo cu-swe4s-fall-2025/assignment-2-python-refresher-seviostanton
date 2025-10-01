@@ -26,7 +26,14 @@ In the command line use `./run.sh` to run the included bash script showing one s
 print_fires.py dependencies only include `sys`, `argparse`, and the `my_utils.py` library included in the repo. 
 However, the complete dev environment used at time of production has been included in the swe4s_env.yml
 
-## 5) MIT License
+## 5) Assignment 4: Testing
+Added mean_ints, median_ints, std_ints to my_utils.py.
+Updated print_fires.py with optional --operation {mean, median, std}
+(no flag = print raw values; with flag = print one statistic).
+Wrote unit tests (test_my_utils.py) for the three functions.
+Added a simple functional test (test_print_fires.sh, ssshtest) that checks raw output, mean, median, and std, and exit code
+
+## 6) MIT License
 Copyright 2025 Sevio Stanton
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
