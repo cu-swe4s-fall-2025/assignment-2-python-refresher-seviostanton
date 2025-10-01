@@ -40,6 +40,10 @@ def parse_args():
     p.add_argument("--fires_column", type=int, required=True,
                    help="Index of the fire column "
                         "(e.g. 2 for savanna fires)")
+    # Optional operation to perform on the fire counts
+    p.add_argument("--operation", choices=["sum", "mean", "std"],
+                   default=None,
+                   help="If provided: Operation to perform on the fire counts")
     return p.parse_args()
 
 
@@ -77,10 +81,29 @@ def main():
                          f"{args.country_column}.\n {e}\n")
         return 2
 
-    # On success, print list of integer values
-    print(f"Values from column {args.fires_column}",
-          f"for {args.country}: {fires}")
-    return 0
+    if args.operation:
+        try:
+            if args.operation == "sum":
+                result = my_utils.sum_ints(fires)
+            elif args.operation == "mean":
+                result = my_utils.mean_ints(fires)
+            elif args.operation == "std":
+                result = my_utils.std_ints(fires)
+            print(f"{args.operation} of values from column "
+                  f"{args.fires_column} for {args.country}: {result}")
+            return 0
+        except ValueError as e:
+            sys.stderr.write(f"Error: Could not perform operation ",
+                             f"{args.operation} on values from column ",
+                             f"{args.fires_column} for"
+                             f"{args.country}.\n {e}\n")
+            return 2
+
+    if args.operation is None:
+        # On success, print list of integer values
+        print(f"Values from column {args.fires_column} for {args.country}:",
+              f"{fires}")
+        return 0
 
 
 if __name__ == "__main__":
