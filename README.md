@@ -1,4 +1,4 @@
-# Assignment 3: Best Practices
+# Assignments 2-5
 
 ## 1) What this project does
 This project implements a command-line tool, `print_fires.py`, that reads a CSV file and prints values from a specified column for rows matching a given country.  
