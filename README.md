@@ -23,14 +23,11 @@ and place in the same directory as print_fires.py
 In the command line use `./run.sh` to run the included bash script showing one successful run and two failed runs (make script executable: `chmod +x run.sh`)
 
 ## 4) Dev Environment
-print_fires.py dependencies only include `sys`, `argparse`, and the `my_utils.py` library included in the repo. 
-However, the complete dev environment used at time of production has been included in the swe4s_env.yml
+print_fires.py dependencies only include `python` and the `my_utils.py` library included in the repo. 
+However, a complete environment has been provided:  `environment.yml`
 
-## 5) MIT License
-Copyright 2025 Sevio Stanton
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## 5) Summary of Changes for Assignment 5 
+- Added continuous integration (CI) with **mamba-org/setup-micromamba** and a portable `environment.yml` (`conda-forge`; `Python`, `numpy`, `pycodestyle`, `pytest`).
+- Added **MIT LICENSE**.
+- Removed stdlib modules (`argparse`, `sys`, `unittest`) from env deps; they’re provided by Python.
+- Ensured style checks (PEP8 via `pycodestyle`), unit tests, and functional tests run locally and in CI.
