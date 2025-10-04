@@ -22,7 +22,7 @@ jobs:
             - uses: actions/checkout@v4
             - uses: mamba-org/setup-micromamba@v2
               with:
-                environment-file: minimal_env.yml
+                environment-file: environment.yml
                 init-shell: bash
             - run: |
                 cd assignment-2-python-refresher-seviostanton
@@ -34,7 +34,7 @@ jobs:
             - uses: actions/checkout@v4
             - uses: mamba-org/setup-micromamba@v2
               with:
-                    environment-file: minimal_env.yml
+                    environment-file: environment.yml
                     init-shell: bash
             - run: |
                 cd assignment-2-python-refresher-seviostanton
