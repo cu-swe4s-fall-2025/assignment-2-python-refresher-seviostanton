@@ -1,0 +1,12 @@
+name: swe4s
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pycodestyle
+  - pytest
+  - argparse
+  - sys
+  - numpy
+  - unittest
+
