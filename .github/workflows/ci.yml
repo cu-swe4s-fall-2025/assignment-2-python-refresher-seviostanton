@@ -13,7 +13,7 @@ jobs:
             - uses: actions/checkout@v4
             - uses: mamba-org/setup-micromamba@v2
               with:
-                    environment-file: swe4s_env.yml
+                    environment-file: minimal_env.yml
                     init-shell: bash
             - run: pycodestyle $(git ls-files '*.py')
               shell: bash -l {0}
@@ -23,7 +23,7 @@ jobs:
             - uses: actions/checkout@v4
             - uses: mamba-org/setup-micromamba@v2
               with:
-                    environment-file: swe4s_env.yml
+                    environment-file: minimal_env.yml
                     init-shell: bash
             - run: |
                 cd assignment-2-python-refresher-seviostanton
@@ -35,7 +35,7 @@ jobs:
             - uses: actions/checkout@v4
             - uses: mamba-org/setup-micromamba@v2
               with:
-                    environment-file: swe4s_env.yml
+                    environment-file: minimal_env.yml
                     init-shell: bash
             - run: |
                 cd assignment-2-python-refresher-seviostanton
