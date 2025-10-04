@@ -1,0 +1,12 @@
+name: swe4s
+channels:
+  - mamba-forge
+dependencies:
+  - python=3.13
+  - pycodestyle
+  - pytest
+  - argparse
+  - sys
+  - numpy
+  - unittest
+
