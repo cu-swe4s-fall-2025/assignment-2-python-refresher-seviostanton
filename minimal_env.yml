@@ -1,8 +1,8 @@
 name: swe4s
 channels:
-  - mamba-forge
+  - conda-forge
 dependencies:
-  - python=3.13
+  - python=3.11
   - pycodestyle
   - pytest
   - argparse
